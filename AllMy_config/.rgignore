@@ -3,3 +3,4 @@ node_modules/
 miniconda3/
 R/
 .vscode/
+.npm/
