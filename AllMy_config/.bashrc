@@ -4,7 +4,7 @@
 
 ########################################################
 # NOTE:  change these variables to fit your env.       #
-export ZSH=$HOME/My_Better_Terminal/.ohmyzsh           #
+# export ZSH=$HOME/My_Better_Terminal/.ohmyzsh         #
                                                        #
 # use default conda PATH or specify a PATH             #
 # export CONDA=/home/jiangchen2/jiangchen/miniconda3   #
@@ -145,8 +145,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-if `which zsh`
-then
-    exec zsh
-fi
-    echo '\n\n\033[32mthere is no zsh to run, check your conda_base_env has zsh or not. \033[0m \n\n Please install zsh use command \033[41;37m conda install -yc conda-forge zsh \033[0m \n\n\n'
+#     echo '\n\n\033[32mthere is no zsh to run, check your conda_base_env has zsh or not. \033[0m \n\n Please install zsh use command \033[41;37m conda install -yc conda-forge zsh \033[0m \n\n\n'

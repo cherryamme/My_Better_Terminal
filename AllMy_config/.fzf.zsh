@@ -1,6 +1,6 @@
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source ~/AllMy_config/completion.zsh 2> /dev/null
+[[ $- == *i* ]] && source ~/.completion.zsh 2> /dev/null
 
 
 

@@ -6,7 +6,7 @@ fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/$HOME/.fzf/shell/completion.bash" 2> /dev/null
+[[ $- == *i* ]] && source ~/.completion.bash 2> /dev/null
 
 
 # Key bindings
@@ -32,6 +32,7 @@ fi
 if 'zmodload' 'zsh/parameter' 2>'/dev/null' && (( ${+options} )); then
   __fzf_key_bindings_options="options=(${(j: :)${(kv)options[@]}})"
 else
+() {
     __fzf_key_bindings_options="setopt"
     'local' '__fzf_opt'
     for __fzf_opt in "${(@)${(@f)$(set -o)}%% *}"; do
@@ -41,6 +42,7 @@ else
         __fzf_key_bindings_options+=" +o $__fzf_opt"
       fi
     done
+  }
 fi
 
 'emulate' 'zsh' '-o' 'no_aliases'
@@ -131,18 +133,22 @@ bindkey -M viins '^R' fzf-history-widget
 }
 
 
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --bind "ctrl-a:select-all" --hidden --follow --glob "!{.git,node_modules,miniconda3,.vscode}/*" 2> /dev/null'
-export FZF_CTRL_T_COMMAND='rg --files --no-ignore --bind "ctrl-a:select-all" --hidden --follow --glob "!{node_modules,miniconda3,.*}/*" 2> /dev/null'
-export FZF_COMPLETION_OPTS
-export FZF_CTRL_T_OPTS="--exact --preview '(highlight -O ansi -l {} 2> /dev/null ||bat --style=numbers --color=always {}|| tree -C {}) 2> /dev/null|| cat | head -200'"
+export FZF_DEFAULT_COMMAND='rg --files 2> /dev/null'
+export FZF_CTRL_T_COMMAND='rg --files 2> /dev/null'
+
+export FZF_CTRL_T_OPTS="--bind 'ctrl-a:select-all' --preview '(highlight -O ansi -l {} 2> /dev/null ||bat --style=numbers --color=always {}|| tree -C {}) 2> /dev/null|| cat | head -200'"
 export FZF_DEFAULT_OPTS="--exact"
 export FZF_CTRL_R_OPTS="--exact"
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 
 ff() {
   if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
-  rg --color=always --line-number --no-heading --smart-case --glob "!{.git,node_modules,miniconda3,.vscode}/*" --files-with-matches --no-messages "$1" | fzf --preview "bat --style=numbers --color=always {} | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
+  rg  --files-with-matches --no-messages "$1" | fzf --preview "bat --style=numbers --color=always {} | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
 }
+function fff(){
+rg --hidden --line-number --with-filename . --field-match-separator ' '\
+  | fzf -m --preview "bat --color=always {1} --highlight-line {2}" \
+  --preview-window ~8,+{2}-5
 
 cd() {
     if [[ "$#" != 0 ]]; then
