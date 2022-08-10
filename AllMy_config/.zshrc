@@ -5,13 +5,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 export TERMINFO='/usr/share/terminfo/'
+export ZSH="${ZSH:-$HOME/.oh-my-zsh}"
+CONDA="${CONDA:-$HOME/miniconda3}"
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="${ZSH:-$HOME/.oh-my-zsh}"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -106,7 +107,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-CONDA="${CONDA:-$HOME/miniconda3}"
 export PATH=$CONDA/bin:$PATH
 function mkdircd {
     mkdir -p "$@" && eval cd "\"\$$#\"";
