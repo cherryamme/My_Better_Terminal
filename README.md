@@ -1,9 +1,42 @@
 # My_Better_Terminal
 enjoy my better terminal
 
-推荐默认shell使用zsh，如只用bash，只需要添加.completion.bash，.fzf.bash，.tmux.conf,.tmux.conf.local至HOME目录即可。
 
-## 功能
+# 纯净版
+使用bash即可，需安装fzf，bat，ripgrep
+`conda install -yc conda-forge fzf,bat,ripgrep` 
+
+只需要添加.completion.bash，.fzf.bash至HOME目录即可(AllMy_config目录下)。
+
+并在.bashrc中添加 source ~/.fzf.bash
+
+## 纯净版功能
+### ** 补全
+tab键识别前置命令补全，支持
+- 命令选项补全
+- 路径补全 `cd **<tab>`
+- 进程补全 `kill **<tab>`
+- ssh补全 
+- 所有命令输入文件补全 `command **<tab>`
+- 等等
+
+### CTRL+R 历史命令
+
+### CTRL+T 文件检索
+
+
+### CTRL+Y 目录切换
+
+### 其余命令
+`ff` 文件搜索
+`fff` 内容搜索
+`mkdircd` 创建目录并切换
+`lc` 统计数目
+
+
+
+
+## 完全版功能（集合了比较多的个人常用功能）
 #### 主题
 `ZSH_THEME="powerlevel10k/powerlevel10k"`
 所有主题在.oh-my-zsh/themes，可自己定义。
@@ -27,7 +60,7 @@ Ctrl+T：搜索文件并预览
 
 
 ## 使用方法一
-git clone ： 方便快捷，可持续更新
+git clone ： 方便快捷，看心情持续更新
 ```shell
 cd $HOME
 git clone git@github.com:cherryamme/My_Better_Terminal.git

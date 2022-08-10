@@ -105,9 +105,10 @@ else
 fi
 
 # ALT-C - cd into the selected directory
-bind -m emacs-standard '"\C|": " \C-b\C-k \C-u`__fzf_cd__`\e\C-e\er\C-m\C-y\C-h\e \C-y\ey\C-x\C-x\C-d"'
-bind -m vi-command '"\C|": "\C-z\ec\C-z"'
-bind -m vi-insert '"\C|": "\C-z\ec\C-z"'
+bind -m emacs-standard '"\C-y": " \C-b\C-k \C-u`__fzf_cd__`\e\C-e\er\C-m\C-h\e \ey\C-x\C-x\C-d"'
+# bind -m emacs-standard -x '"\C-y": __fzf_cd__'
+bind -m vi-command '"\C-y": "\C-z\ec\C-z"'
+bind -m vi-insert '"\C-y": "\C-z\ec\C-z"'
 
 fi
 
@@ -122,6 +123,12 @@ rg --hidden --line-number --with-filename . --field-match-separator ' '\
   --preview-window ~8,+{2}-5
 
 }
+function mkdircd {
+    mkdir -p "$@" && eval cd "\"\$$#\"";
+    }
+function lc {
+    ls "$@" | eval wc -l;
+    }
 
 
 ########################## above is fzf-file-widget  #############################
