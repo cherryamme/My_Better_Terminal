@@ -133,8 +133,8 @@ bindkey -M viins '^R' fzf-history-widget
 
 ########################## above is fzf-file-widget  #############################
 
-export FZF_DEFAULT_COMMAND='rg --files 2> /dev/null'
-export FZF_CTRL_T_COMMAND='rg --files 2> /dev/null'
+export FZF_DEFAULT_COMMAND='rg -L --files 2> /dev/null'
+export FZF_CTRL_T_COMMAND='rg -L --files 2> /dev/null'
 
 # export FZF_COMPLETION_OPTS="--bind 'ctrl-a:select-all+accept'"
 export FZF_CTRL_T_OPTS="--bind 'ctrl-a:select-all' --preview '(highlight -O ansi -l {} 2> /dev/null ||bat --style=numbers --color=always {}|| tree -C {}) 2> /dev/null|| cat | head -200'"
