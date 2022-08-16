@@ -117,9 +117,9 @@ function lc {
 
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -alh'
 alias la='ls -A'
-alias l='ls -lhCF'
+alias l='ls -lh'
 
 
 # if [ -f "$CONDA/etc/profile.d/conda.sh" ]; then
