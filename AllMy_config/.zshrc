@@ -5,8 +5,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 export TERMINFO='/usr/share/terminfo/'
-export ZSH="${ZSH:-$HOME/.oh-my-zsh}"
-CONDA="${CONDA:-$HOME/miniconda3}"
+export ZSH="${ZSH:-$HOME/.ohmyzsh}"
+# CONDA="${CONDA:-$HOME/miniconda3}"
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # If you come from bash you might have to change your $PATH.
