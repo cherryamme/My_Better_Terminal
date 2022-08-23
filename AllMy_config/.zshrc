@@ -120,7 +120,7 @@ function lc {
 alias ll='ls -alh'
 alias la='ls -A'
 alias l='ls -lh'
-
+alias lp='ls $PWD/*'
 
 # if [ -f "$CONDA/etc/profile.d/conda.sh" ]; then
 #         . "$CONDA/etc/profile.d/conda.sh"
